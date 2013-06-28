@@ -7,7 +7,25 @@
  * of ng-model because it was impossible (to my knowledge at least) to attach two models to a component.
  *
  * This directive also supports a tooltip function, which can be defined in the parent scope, and is called
- * automatically on slide. It is defined as an additional attribute "tooltipfn".
+ * automatically on slide. It is defined as an additional attribute "tooltipfn". A tooltip function could look
+ * like this;
+ *
+
+ scope.tooltipFunction = function(slider) {
+            val1 = '<div class="slider_tooltip">' + slider.slider("values", 0) + '</div>';
+            val2 = '<div class="slider_tooltip">' + slider.slider("values", 1) + '</div>';
+            slider.children('.ui-slider-handle').first().html(val1);
+            slider.children('.ui-slider-handle').last().html(val2);
+        }
+
+ You would then define it in the element as such:
+ <div
+    value="['rangeSlider1', 'rangeSlider2']"
+    tooltipfn="tooltipFunction"
+    jquislider="{min:1, max:5, range: true, values: [2,4]}"
+ ></div>
+
+ *
  *
  * See the appropriate demo page for demos.
  *
