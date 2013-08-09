@@ -1,6 +1,8 @@
 ngdirectives
 ============
 
+### Note: see angular-ui instead. This repo will soon change to include directives not found there.
+
 Various AngularJS directives I frequently use and need.
 
 ### How to use
